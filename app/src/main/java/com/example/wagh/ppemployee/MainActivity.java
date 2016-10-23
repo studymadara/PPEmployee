@@ -1,5 +1,6 @@
 package com.example.wagh.ppemployee;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         emailPass=(EditText)findViewById(R.id.mainPass);
         Signin=(Button)findViewById(R.id.signin);
 
-        databaseopen();
+        //databaseopen();
 
 
         Signin.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 semailID=emailID.getText().toString();
                 semailPass=emailPass.getText().toString();
 
-                databaseopen();
+
 
 
 
@@ -45,10 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"Done!!",Toast.LENGTH_LONG).show();
 
+                    Intent itest=new Intent(MainActivity.this,admin.class);
+                    startActivity(itest);
+
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_LONG).show();
+                    emailID.setText("");
+                    emailPass.setText("");
 
                 }
 
@@ -60,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+
     void databaseopen()
     {
         mydb=this.openOrCreateDatabase(tablename1,MODE_PRIVATE,null);
@@ -70,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void dataverify()
+    **/
+
+    //whenever the back door for admin is created then open the data verify block
+
+  /**  void dataverify()
     {
 
         String verify_post;
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
         identify.close();
 
-    }
+    }**/
 
 
 }
